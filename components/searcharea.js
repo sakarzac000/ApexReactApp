@@ -6,75 +6,18 @@ import {
     Button, 
     TextInput,
     View, 
-    Dimensions,
-    TouchableOpacity } 
+    Dimensions } 
     from 'react-native';
 
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faWindows, faPlaystation, faXbox } from "@fortawesome/free-brands-svg-icons"
 
 export default function searchArea(props) {
 
-    const [platform, setPlatform] = useState('Windows')
     const [username, setUsername] = useState('')
 
-    function platformPressed() {
-        styles.Playstation.color = "#333333";
-        styles.Windows.color = "#333333";
-        styles.Xbox.color = "#333333"
-
-    }
 
     return (
         <View>
             <View style={styles.sideBySide}>
-                <View style={styles.iconsWrapper}>
-
-                    <FontAwesomeIcon 
-                    onPress={() => {
-                        setPlatform("Windows")
-                        platformPressed()
-                        styles.Windows.color = "#111111"
-                    }}
-                    size={30} 
-                    icon={ faWindows }
-                    styles={{
-                        color: styles.Windows.color
-                    }}
-                    />
-
-
-                    <FontAwesomeIcon 
-                    onPress={() => {
-                        setPlatform("Playstation")
-                        platformPressed()
-                        styles.Playstation.color = "#111111"
-                    }}
-                    size={30} 
-                    icon={ faPlaystation }
-                    styles={{
-                        color: styles.Playstation.color
-                    }}
-                    />
-
-
-
-                    <FontAwesomeIcon 
-                    onPress={() => {
-                        setPlatform("Xbox")
-                        platformPressed()
-                        styles.Xbox.color = "#111111"
-                    }}
-                    size={30} 
-                    icon={ faXbox }
-                    styles={{
-                        color: styles.Xbox.color
-                    }}
-                    />
-
-
-                </View>
-
                 <View>
                     <TextInput
                     style={styles.textinput}
@@ -112,18 +55,12 @@ let styles = StyleSheet.create({
         color: 'black',
         borderRadius: 5
     },
-    iconsWrapper: {
-        marginLeft: 20,
-        marginRight: 20,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-    },
     sideBySide: {
         display: "flex",
         flexDirection: "row",
-        marginTop: 20
+        marginTop: 20,
+        alignItems: "center",
+        justifyContent: "center"
     },
     buttonStyles: {
         marginLeft: 20,
@@ -133,13 +70,4 @@ let styles = StyleSheet.create({
         borderRadius: 5,
         color: 'white'
     },
-    Windows: {
-        color: '#111111'
-    },
-    Xbox: {
-        color: "#333333"
-    },
-    Playstation: {
-        color: "#333333"
-    }
 })
